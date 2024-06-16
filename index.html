@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Balotești-39</title>
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="icon" href="/favicon/favicon-32x32.png" type="image/png" />
+    <!-- <link rel="icon" href="/favicon/favicon.ico" sizes="32x32"> -->
+    <!-- <link rel="icon" href="" type="image/svg+xml"> -->
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+    <style>
+        @font-face {
+            font-display: swap;
+            font-family: 'Lora';
+            font-style: normal;
+            font-weight: 400;
+            src: url("fonts/lora-v35-latin-ext-regular.woff2") format('woff2');
+        }
+
+        @font-face {
+            font-display: swap;
+            font-family: 'Lora';
+            font-style: normal;
+            font-weight: 700;
+            src: url("fonts/lora-v35-latin-ext-700.woff2") format('woff2');
+        }
+
+        @font-face {
+            font-display: swap;
+            font-family: 'Merriweather';
+            font-style: normal;
+            font-weight: 400;
+            src: url("fonts/merriweather-v30-latin-ext-regular.woff2") format('woff2');
+        }
+
+        @font-face {
+            font-display: swap;
+            font-family: 'Merriweather';
+            font-style: normal;
+            font-weight: 700;
+            src: url("fonts/merriweather-v30-latin-ext-700.woff2") format('woff2');
+        }
+
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: url("fonts/montserrat-v26-latin-ext-regular.woff2") format('woff2');
+        }
+
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            src: url("fonts/montserrat-v26-latin-ext-700.woff2") format('woff2');
+        }
+
+
+        @font-face {
+            font-display: swap;
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: url("fonts/open-sans-v40-latin-ext-regular.woff2") format('woff2');
+        }
+
+        @font-face {
+            font-display: swap;
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 700;
+            src: url("fonts/open-sans-v40-latin-ext-700.woff2") format('woff2');
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Lora', serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        header h1 {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+            background: #eee;
+
+            >.tab:nth-of-type(3) {
+                margin-right: auto;
+            }
+
+            @media (max-width: 768px) {
+                flex-direction: column;
+
+                >.tab:nth-of-type(3) {
+                    margin-right: unset;
+                }
+            }
+        }
+
+        .tab a {
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: black;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .section {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <h1>BALOTESTI-39</h1>
+    </header>
+    <nav>
+        <ul class="tabs">
+            <li class="tab"><a href="#lotizare">Lotizare</a></li>
+            <li class="tab"><a href="#case">Case</a></li>
+            <li class="tab"><a href="#ansamblu">Ansamblu</a></li>
+            <li class="tab"><a href="#galerie">Galerie</a></li>
+            <li class="tab"><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <main class="content">
+        <section id="lotizare" class="section">Content for Lotizare</section>
+        <section id="case" class="section">Content for Case</section>
+        <section id="ansamblu" class="section">Content for Ansamblu</section>
+        <section id="galerie" class="section">Content for Galerie</section>
+        <section id="contact" class="section">Content for Contact</section>
+    </main>
+    <script>
+        document.querySelector("nav .tabs").addEventListener("click", (event) => {
+            if (event.target && event.target.nodeName === "A") {
+                // event.preventDefault();
+                const targetId = event.target.getAttribute("href").slice(1);
+
+                document.querySelectorAll("main .section").forEach((section) => {
+                    if (section.id === targetId) {
+                        section.style.display = "block";
+                    } else {
+                        section.style.display = "none";
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
