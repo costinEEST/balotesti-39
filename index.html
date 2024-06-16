@@ -108,8 +108,21 @@
             text-align: center;
             background: #eee;
 
-            >.tab:nth-of-type(3) {
+            /* >.tab:nth-of-type(3) {
                 margin-right: auto;
+            } */
+
+            .tab {
+                &.active {
+                    a {
+                        background-color: #d3d3d3;
+                        color: #000;
+                    }
+                }
+
+                &:nth-of-type(3) {
+                    margin-right: auto;
+                }
             }
 
             @media (max-width: 768px) {
@@ -145,7 +158,7 @@
     </header>
     <nav>
         <ul class="tabs">
-            <li class="tab"><a href="#lotizare">Lotizare</a></li>
+            <li class="tab active"><a href="#lotizare">Lotizare</a></li>
             <li class="tab"><a href="#case">Case</a></li>
             <li class="tab"><a href="#ansamblu">Ansamblu</a></li>
             <li class="tab"><a href="#galerie">Galerie</a></li>
@@ -160,12 +173,20 @@
         <section id="contact" class="section">Content for Contact</section>
     </main>
     <script>
-        document.querySelector("nav .tabs").addEventListener("click", (event) => {
-            if (event.target && event.target.nodeName === "A") {
-                // event.preventDefault();
-                const targetId = event.target.getAttribute("href").slice(1);
+        document.querySelector("nav .tabs").addEventListener("click", (e) => {
+            if (e.target && e.target.nodeName === "A") {
+                // e.preventDefault();
+                const currentActiveTab = document.querySelector('.tabs .active');
+                const targetId = e.target.getAttribute("href").slice(1);
+
+                if (currentActiveTab) {
+                    currentActiveTab.classList.remove('active');
+                }
+
+                e.target.parentNode.classList.add('active');
 
                 document.querySelectorAll("main .section").forEach((section) => {
+                    console.log({ targetId, sectionID: section.id, targetIdHasActiveClass: e.target.parentNode.classList })
                     if (section.id === targetId) {
                         section.style.display = "block";
                     } else {
