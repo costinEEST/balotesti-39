@@ -12,3 +12,5 @@
 
 - https://github.com/majodev/google-webfonts-helper, https://stackoverflow.com/a/14897846
 - https://favicon.io/favicon-generator, https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs
+- https://inclusive-components.design/collapsible-sections
+- https://alistapart.com/article/axiomatic-css-and-lobotomized-owls

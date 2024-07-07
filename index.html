@@ -7,82 +7,81 @@
     <meta name="robots" content="noindex,nofollow" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Balotești-39</title>
-    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="manifest" href="/favicon/site.webmanifest" />
     <link rel="icon" href="/favicon/favicon-32x32.png" type="image/png" />
     <!-- <link rel="icon" href="/favicon/favicon.ico" sizes="32x32"> -->
     <!-- <link rel="icon" href="" type="image/svg+xml"> -->
-    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
     <style>
         @font-face {
             font-display: swap;
-            font-family: 'Lora';
+            font-family: "Lora";
             font-style: normal;
             font-weight: 400;
-            src: url("fonts/lora-v35-latin-ext-regular.woff2") format('woff2');
+            src: url("fonts/lora-v35-latin-ext-regular.woff2") format("woff2");
         }
 
         @font-face {
             font-display: swap;
-            font-family: 'Lora';
+            font-family: "Lora";
             font-style: normal;
             font-weight: 700;
-            src: url("fonts/lora-v35-latin-ext-700.woff2") format('woff2');
+            src: url("fonts/lora-v35-latin-ext-700.woff2") format("woff2");
         }
 
         @font-face {
             font-display: swap;
-            font-family: 'Merriweather';
+            font-family: "Merriweather";
             font-style: normal;
             font-weight: 400;
-            src: url("fonts/merriweather-v30-latin-ext-regular.woff2") format('woff2');
+            src: url("fonts/merriweather-v30-latin-ext-regular.woff2") format("woff2");
         }
 
         @font-face {
             font-display: swap;
-            font-family: 'Merriweather';
+            font-family: "Merriweather";
             font-style: normal;
             font-weight: 700;
-            src: url("fonts/merriweather-v30-latin-ext-700.woff2") format('woff2');
+            src: url("fonts/merriweather-v30-latin-ext-700.woff2") format("woff2");
         }
 
         @font-face {
             font-display: swap;
-            font-family: 'Montserrat';
+            font-family: "Montserrat";
             font-style: normal;
             font-weight: 400;
-            src: url("fonts/montserrat-v26-latin-ext-regular.woff2") format('woff2');
+            src: url("fonts/montserrat-v26-latin-ext-regular.woff2") format("woff2");
         }
 
         @font-face {
             font-display: swap;
-            font-family: 'Montserrat';
+            font-family: "Montserrat";
             font-style: normal;
             font-weight: 700;
-            src: url("fonts/montserrat-v26-latin-ext-700.woff2") format('woff2');
+            src: url("fonts/montserrat-v26-latin-ext-700.woff2") format("woff2");
         }
-
 
         @font-face {
             font-display: swap;
-            font-family: 'Open Sans';
+            font-family: "Open Sans";
             font-style: normal;
             font-weight: 400;
-            src: url("fonts/open-sans-v40-latin-ext-regular.woff2") format('woff2');
+            src: url("fonts/open-sans-v40-latin-ext-regular.woff2") format("woff2");
         }
 
         @font-face {
             font-display: swap;
-            font-family: 'Open Sans';
+            font-family: "Open Sans";
             font-style: normal;
             font-weight: 700;
-            src: url("fonts/open-sans-v40-latin-ext-700.woff2") format('woff2');
+            src: url("fonts/open-sans-v40-latin-ext-700.woff2") format("woff2");
         }
 
         body,
         html {
             margin: 0;
             padding: 0;
-            font-family: 'Lora', serif;
+            font-family: "Lora", serif;
         }
 
         h1,
@@ -91,13 +90,15 @@
         h4,
         h5,
         h6 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: "Montserrat", sans-serif;
         }
 
-        header h1 {
-            text-align: center;
-            font-size: 24px;
-            font-weight: 700;
+        header {
+            h1 {
+                text-align: center;
+                font-size: 24px;
+                font-weight: 700;
+            }
         }
 
         .tabs {
@@ -107,10 +108,6 @@
             padding: 0;
             text-align: center;
             background: #eee;
-
-            /* >.tab:nth-of-type(3) {
-                margin-right: auto;
-            } */
 
             .tab {
                 &.active {
@@ -132,15 +129,15 @@
                     margin-right: unset;
                 }
             }
-        }
 
-        .tab a {
-            display: inline-block;
-            padding: 10px 20px;
-            text-decoration: none;
-            color: black;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
+            a {
+                display: inline-block;
+                padding: 10px 20px;
+                text-decoration: none;
+                color: black;
+                font-family: "Montserrat", sans-serif;
+                font-weight: 700;
+            }
         }
 
         .section {
@@ -148,6 +145,66 @@
             padding: 20px;
             border: 1px solid #ccc;
             margin-top: 10px;
+        }
+
+        .accordion {
+            margin: 1em 0;
+
+            button {
+                background-color: #d3e5ff;
+                border: 1px solid #ccc;
+                padding: 1em;
+                width: 100%;
+                text-align: left;
+                font-size: 1.2em;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .plus-icon {
+                    transition: transform 0.2s;
+                }
+
+                &[aria-expanded="true"] .plus-icon {
+                    transform: rotate(45deg);
+                }
+
+                &:focus {
+                    outline: 2px solid #0053ba;
+                }
+
+                &:hover,
+                &:active {
+                    background-color: #c3d4f2;
+                }
+            }
+
+            .panel {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.2s ease-out, margin 0.2s ease-out;
+                margin: 0 1em;
+
+                &.show {
+                    max-height: 300px;
+                    margin: 1em;
+                }
+
+                .content {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    img {
+                        width: 100px;
+                    }
+                }
+
+                &+button {
+                    margin-top: 1.5em;
+                }
+            }
         }
     </style>
 </head>
@@ -167,7 +224,65 @@
     </nav>
     <main class="content">
         <section id="lotizare" class="section">Content for Lotizare</section>
-        <section id="case" class="section">Content for Case</section>
+        <section id="case" class="section">
+            <div class="accordion">
+                <button aria-expanded="false" aria-controls="casa-a" id="casa-a-button">
+                    CASA TIP A
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" class="plus-icon">
+                        <path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 5v14m-7-7h14" />
+                    </svg>
+                </button>
+                <div id="casa-a" class="panel" role="region" aria-labelledby="casa-a-button">
+                    <div class="content">
+                        <img src="./images/house.svg" alt="House type A" />
+                        <a href="http://www.muzee-valcea.ro/buridava/B8_37.godea.pdf" download>download PDF</a>
+                    </div>
+                </div>
+
+                <button aria-expanded="false" aria-controls="casa-b" id="casa-b-button">
+                    CASA TIP B
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" class="plus-icon">
+                        <path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 5v14m-7-7h14" />
+                    </svg>
+                </button>
+                <div id="casa-b" class="panel" role="region" aria-labelledby="casa-b-button">
+                    <div class="content">
+                        <img src="./images/house.svg" alt="House type B" />
+                        <a href="http://www.muzee-valcea.ro/buridava/B8_37.godea.pdf" download>download PDF</a>
+                    </div>
+                </div>
+
+                <button aria-expanded="false" aria-controls="casa-c" id="casa-c-button">
+                    CASA TIP C
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" class="plus-icon">
+                        <path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 5v14m-7-7h14" />
+                    </svg>
+                </button>
+                <div id="casa-c" class="panel" role="region" aria-labelledby="casa-c-button">
+                    <div class="content">
+                        <img src="./images/house.svg" alt="House type C" />
+                        <a href="http://www.muzee-valcea.ro/buridava/B8_37.godea.pdf" download>download PDF</a>
+                    </div>
+                </div>
+
+                <button aria-expanded="false" aria-controls="casa-d" id="casa-d-button">
+                    CASA TIP D
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" class="plus-icon">
+                        <path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 5v14m-7-7h14" />
+                    </svg>
+                </button>
+                <div id="casa-d" class="panel" role="region" aria-labelledby="casa-d-button">
+                    <div class="content">
+                        <img src="./images/house.svg" alt="House type D" />
+                        <a href="http://www.muzee-valcea.ro/buridava/B8_37.godea.pdf" download>download PDF</a>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section id="ansamblu" class="section">Content for Ansamblu</section>
         <section id="galerie" class="section">Content for Galerie</section>
         <section id="contact" class="section">Content for Contact</section>
@@ -176,23 +291,45 @@
         document.querySelector("nav .tabs").addEventListener("click", (e) => {
             if (e.target && e.target.nodeName === "A") {
                 // e.preventDefault();
-                const currentActiveTab = document.querySelector('.tabs .active');
+                const currentActiveTab = document.querySelector(".tabs .active");
                 const targetId = e.target.getAttribute("href").slice(1);
 
                 if (currentActiveTab) {
-                    currentActiveTab.classList.remove('active');
+                    currentActiveTab.classList.remove("active");
                 }
 
-                e.target.parentNode.classList.add('active');
+                e.target.parentNode.classList.add("active");
 
                 document.querySelectorAll("main .section").forEach((section) => {
-                    console.log({ targetId, sectionID: section.id, targetIdHasActiveClass: e.target.parentNode.classList })
+                    console.log({
+                        targetId,
+                        sectionID: section.id,
+                        targetIdHasActiveClass: e.target.parentNode.classList,
+                    });
                     if (section.id === targetId) {
                         section.style.display = "block";
                     } else {
                         section.style.display = "none";
                     }
                 });
+            }
+        });
+
+        document.querySelector(".accordion").addEventListener("click", (e) => {
+            if (
+                e.target &&
+                (e.target.nodeName === "BUTTON" || e.target.closest("button"))
+            ) {
+                const button = e.target.closest("button");
+                const panel = button.nextElementSibling;
+
+                if (button.getAttribute("aria-expanded") === "true") {
+                    button.setAttribute("aria-expanded", "false");
+                    panel.classList.remove("show");
+                } else {
+                    button.setAttribute("aria-expanded", "true");
+                    panel.classList.add("show");
+                }
             }
         });
     </script>
