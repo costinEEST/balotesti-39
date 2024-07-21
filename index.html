@@ -206,6 +206,58 @@
                 }
             }
         }
+
+        .slider {
+            position: relative;
+            width: 80vw;
+            max-height: 60vh;
+            margin: auto;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 100%;
+        }
+
+        .slide {
+            flex: 0 0 100%;
+            max-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 100%;
+                /* display: block; */
+                max-width: 100%;
+                height: auto;
+                max-height: 100%;
+            }
+        }
+
+        .slide-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 100;
+
+            &.prev {
+                left: 10px;
+            }
+
+            &.next {
+                right: 10px;
+            }
+        }
     </style>
 </head>
 
@@ -284,7 +336,33 @@
             </div>
         </section>
         <section id="ansamblu" class="section">Content for Ansamblu</section>
-        <section id="galerie" class="section">Content for Galerie</section>
+        <section id="galerie" class="section">
+            <div class="slider" aria-roledescription="carousel" aria-label="Galerie de imagini">
+                <div class="slides" aria-live="off">
+                    <div class="slide" role="group" aria-label="Blazon">
+                        <img src="https://scontent.fotp3-1.fna.fbcdn.net/v/t1.6435-9/67872021_2388551427892295_902796400427794432_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=25d718&_nc_ohc=asBNnuh_o-QQ7kNvgGA3cR_&_nc_ht=scontent.fotp3-1.fna&oh=00_AYDTXKKhQ0YSsbiFU-mQH97CKq7AsUzprKELY0YPwQOfhw&oe=66C47141"
+                            alt="Blazon" />
+                    </div>
+                    <div class="slide" role="group" aria-label="Șosea">
+                        <img src="https://scontent.fotp3-2.fna.fbcdn.net/v/t39.30808-6/405739361_7050270851702569_3014775189903361739_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=2285d6&_nc_ohc=3W811-A1Z_gQ7kNvgHStDte&_nc_ht=scontent.fotp3-2.fna&oh=00_AYBwOzzIo0lmCITliswyF8VcBW8p76XU0ZBbubQFnMSbVg&oe=66A2E62A"
+                            alt="Șosea" />
+                    </div>
+                    <div class="slide" role="group" aria-label="Pe hartă">
+                        <img src="https://www.outdooractive.com/api/staticmap?i=33309101&size=medium" alt="Pe hartă" />
+                    </div>
+                    <div class="slide" role="group" aria-label="Stadion">
+                        <img src="https://www.ripensia-sport-magazin.ro/wp-content/uploads/2017/10/Stadion-Balotesti.jpg"
+                            alt="Stadion" />
+                    </div>
+                    <div class="slide" role="group" aria-label="Primăria">
+                        <img src="https://primariabalotesti.ro/wp-content/uploads/2018/07/primaria-google-1.jpg"
+                            alt="Primăria" />
+                    </div>
+                </div>
+                <button class="slide-btn prev" aria-controls="slides" aria-label="Înapoi">❮</button>
+                <button class="slide-btn next" aria-controls="slides" aria-label="Înainte">❯</button>
+            </div>
+        </section>
         <section id="contact" class="section">Content for Contact</section>
     </main>
     <script>
@@ -332,6 +410,42 @@
                 }
             }
         });
+
+        const slidesContainer = document.querySelector('.slides');
+        const slides = Array.from(slidesContainer.children);
+        let currentIndex = 0;
+
+        function updateSlidePosition() {
+            slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+            slides.forEach((slide, index) => {
+                slide.setAttribute('aria-hidden', index !== currentIndex);
+            });
+        }
+
+        function handleArrowKeys(e) {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+            }
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
+            updateSlidePosition();
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
+            updateSlidePosition();
+        }
+
+        document.querySelector('.slide-btn.prev').addEventListener('click', prevSlide);
+        document.querySelector('.slide-btn.next').addEventListener('click', nextSlide);
+
+        slidesContainer.addEventListener('keydown', handleArrowKeys);
+
+        updateSlidePosition();
     </script>
 </body>
 

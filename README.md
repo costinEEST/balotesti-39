@@ -14,3 +14,10 @@
 - https://favicon.io/favicon-generator, https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs
 - https://inclusive-components.design/collapsible-sections
 - https://alistapart.com/article/axiomatic-css-and-lobotomized-owls
+- https://www.smashingmagazine.com/2023/02/guide-building-accessible-carousels
+- https://www.linkedin.com/pulse/usability-guidelines-better-carousels-ux-vitaly-friedman
+- https://github.com/Accessible360/accessible-slick
+- https://www.accessibility-developer-guide.com/examples/widgets/carousel/
+- https://www.youtube.com/watch?v=FMrWHGrC4hY
+- https://www.youtube.com/watch?v=4cfgmBNV6TM
+- https://www.lambdatest.com/blog/accessible-carousels/
