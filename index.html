@@ -30,13 +30,15 @@
             src: url("https://cdn.jsdelivr.net/gh/costinEEST/parcela-40@3d7df/fonts/BankGothicCLtBT-Light.woff2") format("woff2");
         }
 
-        body,
         html {
+            font-size: clamp(1rem, 0.9rem + 1vw, 1.25rem);
+        }
+
+        body {
             max-width: 768px;
             margin: 0 auto;
             padding: 0;
             font-family: "BankGothic", sans-serif;
-            font-size: 16px;
             line-height: 1.6;
             color: var(--main-color);
             text-transform: uppercase;
@@ -59,7 +61,6 @@
         }
 
         header {
-            /* padding: 2rem 0 1.5rem; */
             background: transparent;
 
             h1 {
@@ -217,8 +218,6 @@
 
         .slider {
             position: relative;
-            /* width: 80vw; */
-            /* max-height: 60vh; */
             margin: auto;
             overflow: hidden;
             display: flex;
