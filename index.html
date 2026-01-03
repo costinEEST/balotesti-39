@@ -14,21 +14,24 @@
     <!-- <link rel="icon" href="" type="image/svg+xml"> -->
     <link rel="apple-touch-icon"
         href="https://cdn.jsdelivr.net/gh/costinEEST/parcela-40@f8322/favicon/apple-touch-icon.png" />
-    <link rel="preload" href="https://cdn.jsdelivr.net/gh/costinEEST/parcela-40@3d7df/fonts/BankGothicCLtBT-Light.woff2"
-        as="font" type="font/woff2" crossorigin />
+    <!-- <link rel="preload" href="https://cdn.jsdelivr.net/gh/costinEEST/parcela-40@3d7df/fonts/BankGothicCLtBT-Light.woff2"
+        as="font" type="font/woff2" crossorigin /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --main-color: #00a759;
         }
 
-        @font-face {
+        /* @font-face {
             font-display: swap;
             font-family: "BankGothic";
             font-style: normal;
             font-weight: 300;
             src: url("https://cdn.jsdelivr.net/gh/costinEEST/parcela-40@3d7df/fonts/BankGothicCLtBT-Light.woff2") format("woff2");
-        }
+        } */
 
         html {
             font-size: clamp(1rem, 0.9rem + 1vw, 1.25rem);
@@ -38,7 +41,8 @@
             max-width: 768px;
             margin: 0 auto;
             padding: 0;
-            font-family: "BankGothic", sans-serif;
+            font-family: "Rajdhani", system-ui, sans-serif;
+            font-weight: 400;
             line-height: 1.6;
             color: var(--main-color);
             text-transform: uppercase;
@@ -85,62 +89,57 @@
             }
         }
 
-
         .tabs {
             display: flex;
             flex-wrap: wrap;
+            justify-content: space-between;
             list-style-type: none;
             padding: 0;
             margin: 0;
             text-align: center;
 
             .tab {
-                &.active {
-                    a {
-                        background-color: #d3d3d3;
-                        color: var(--main-color);
-                    }
-                }
+                margin: .5rem 0;
 
-                &:nth-of-type(3) {
-                    margin-right: auto;
+                &.active,
+                &:hover {
+                    outline: 2px dashed var(--main-color);
                 }
             }
 
             @media (max-width: 768px) {
                 flex-direction: column;
-
-                >.tab:nth-of-type(3) {
-                    margin-right: unset;
-                }
             }
 
             a {
-                display: inline-block;
-                padding: 10px 20px;
                 text-decoration: none;
                 color: var(--main-color);
                 font-weight: 700;
+                font-size: 1rem;
             }
         }
 
         .section {
             display: none;
             padding: 20px;
-            border: 1px solid var(--main-color);
+            outline: 2px dashed var(--main-color);
             margin-top: 10px;
+
+            h3 {
+                font-size: 1.25rem;
+            }
         }
 
         .accordion {
             margin: 1em 0;
 
             button {
-                background-color: #d3e5ff;
-                border: 1px solid var(--main-color);
-                padding: 1em;
+                background-color: transparent;
+                border: none;
                 width: 100%;
                 text-align: left;
-                font-size: 1.2em;
+                font-size: 1.2rem;
+                color: inherit;
                 cursor: pointer;
                 display: flex;
                 justify-content: space-between;
@@ -148,19 +147,20 @@
 
                 .plus-icon {
                     transition: transform 0.2s;
+
+                    path {
+                        stroke: var(--main-color);
+                    }
                 }
 
                 &[aria-expanded="true"] .plus-icon {
                     transform: rotate(45deg);
                 }
 
-                &:focus {
-                    outline: 2px solid #0053ba;
-                }
-
-                &:hover,
-                &:active {
-                    background-color: #c3d4f2;
+                &:active,
+                &:focus,
+                &:hover {
+                    outline: 2px dashed var(--main-color);
                 }
             }
 
@@ -194,6 +194,7 @@
                     .pdf-link {
                         display: inline-flex;
                         align-items: center;
+                        color: inherit;
                         gap: 0.35rem;
                         font-weight: 700;
                         text-decoration: none;
